@@ -1,0 +1,678 @@
+:root {
+    --color-bg-dark: #1a0b2e;
+    /* Deep purple */
+    --color-bg-gradient: linear-gradient(135deg, #2a0845 0%, #6441A5 50%, #2a0845 100%);
+    --color-gold: #ffcc00;
+    /* Bright gold from image */
+    --color-gold-dim: #d4af37;
+    --color-text-light: #ffffff;
+    --color-text-dim: #cccccc;
+    --color-card-bg: rgba(255, 255, 255, 0.05);
+
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Inter', sans-serif;
+    --font-cinzel: 'Cinzel', serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-bg-dark);
+    background: radial-gradient(circle at 50% 0%, #431d68 0%, #1a0b2e 60%);
+    color: var(--color-text-light);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Utilities */
+.text-center {
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    border: none;
+    font-size: 0.9rem;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 204, 0, 0.3);
+}
+
+.btn-primary {
+    background-color: var(--color-gold);
+    color: #1a0b2e;
+}
+
+.btn-secondary {
+    background-color: var(--color-gold);
+    color: #1a0b2e;
+    min-width: 250px;
+    text-align: center;
+}
+
+/* Header */
+.header {
+    padding: 20px 0;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-sub {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    letter-spacing: 2px;
+}
+
+.logo-main {
+    font-size: 1.5rem;
+    font-family: var(--font-serif);
+    font-weight: 700;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-list a {
+    color: var(--color-text-light);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.nav-list a:hover {
+    color: var(--color-gold);
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.mobile-menu-btn span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: var(--color-text-light);
+    margin: 5px 0;
+}
+
+/* Hero */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.hero-content {
+    flex: 1;
+    padding-right: 50px;
+}
+
+.hero-subtitle {
+    display: block;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.hero-title {
+    font-family: var(--font-serif);
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.hero-text {
+    margin-bottom: 40px;
+    color: var(--color-text-dim);
+}
+
+
+/* Hero Image Wrapper */
+.hero-image-wrapper {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+.hero-img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 20px;
+    object-fit: cover;
+    z-index: 2;
+    mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+    transition: transform 0.5s ease;
+}
+
+.hero-image-wrapper:hover .hero-img {
+    transform: scale(1.02);
+}
+
+.mystic-circle {
+    position: absolute;
+    width: 600px;
+    /* Larger to show details behind portrait */
+    height: 600px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.matrix-svg {
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    /* The SVG has its own internal rotation, but we can rotate the whole thing too if needed. 
+        Current SVG text rotates with it, which might not be ideal but acceptable for "mystical" effect. 
+        Actually, let's let the SVG handle internal rotation or just static. 
+        The SVG I wrote has a 'rotate-slow' class on the group. */
+}
+
+/* Responsive adjustment for matrix */
+@media (max-width: 768px) {
+    .mystic-circle {
+        width: 400px;
+        height: 400px;
+    }
+}
+
+
+/* Section Divider */
+.section-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-gold-dim), transparent);
+    opacity: 0.3;
+    margin: 0 auto;
+}
+
+/* Magic Section */
+.magic {
+    padding: 80px 0;
+    position: relative;
+    text-align: center;
+}
+
+.magic::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+    opacity: 0.5;
+}
+
+.magic::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+    opacity: 0.5;
+}
+
+.section-title {
+    font-family: var(--font-cinzel);
+    color: var(--color-gold);
+    font-size: 2rem;
+    margin-bottom: 60px;
+    letter-spacing: 2px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: var(--color-gold);
+    box-shadow: 0 0 10px var(--color-gold);
+}
+
+.magic-content {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+.magic-quote-box {
+    flex: 1;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    padding: 40px;
+    position: relative;
+    background: rgba(26, 11, 46, 0.6);
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.magic-quote-box:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-gold);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.magic-quote-box::before,
+.magic-quote-box::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: 1px solid var(--color-gold);
+    transition: all 0.3s ease;
+}
+
+.magic-quote-box::before {
+    top: -1px;
+    left: -1px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.magic-quote-box::after {
+    bottom: -1px;
+    right: -1px;
+    border-left: none;
+    border-top: none;
+}
+
+.magic-quote-box:hover::before,
+.magic-quote-box:hover::after {
+    width: 100%;
+    height: 100%;
+}
+
+.magic-quote {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.2rem;
+    text-align: center;
+    color: var(--color-text-light);
+}
+
+.magic-text {
+    flex: 1;
+}
+
+.magic-subtitle {
+    color: var(--color-gold);
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.magic-text p {
+    margin-bottom: 15px;
+    color: var(--color-text-dim);
+}
+
+/* Services */
+.services {
+    padding: 80px 0;
+    background: linear-gradient(to bottom, rgba(26, 11, 46, 0), rgba(0, 0, 0, 0.3));
+    /* Subtle darken */
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* Services */
+.services {
+    padding: 80px 0;
+    background: linear-gradient(to bottom, rgba(26, 11, 46, 0), rgba(0, 0, 0, 0.3));
+    /* Subtle darken */
+    text-align: center;
+    /* Center content including title */
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    text-align: left;
+    /* Reset text align for cards if needed, but cards usually centered text is fine, let's keep it or check card styles. 
+    Actually cards have p color dim. Let's check card style. 
+    Cards have h3 and p. If we center parent, grid items stretch. Text inside grid items inherits. 
+    Let's text-align: left just in case or center? 
+    Reference images usually have centered cards text for simple cards. 
+    Let's leave it inherited (centered) or set specific.
+    Wait, the user only complained about TITLE.
+    But centering the whole section is usually safer for these designs.
+    */
+}
+
+.service-card {
+    background: var(--color-card-bg);
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    /* Very subtle border */
+    border-radius: 8px;
+    transition: 0.3s;
+    text-align: left;
+    /* Keep card text left-aligned or centered? Let's stick to left or center. 
+                       "Adobe Express" ref usually uses centered for small cards. 
+                       But let's default to left for cards if that was previous behavior. 
+                       Actually previous behavior was left (default). 
+                       Let's explicity set text-align: left on cards to match previous.
+                    */
+}
+
+.service-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+}
+
+.service-card h3 {
+    font-family: var(--font-serif);
+    color: var(--color-text-light);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.service-card p {
+    color: var(--color-text-dim);
+    font-size: 0.9rem;
+}
+
+/* Instagram */
+.instagram {
+    padding: 80px 0;
+    border-top: 1px solid rgba(255, 204, 0, 0.2);
+    background: linear-gradient(to top, rgba(13, 4, 23, 1), rgba(26, 11, 46, 0));
+    text-align: center;
+}
+
+.insta-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+}
+
+.insta-item {
+    aspect-ratio: 1;
+    background-color: #e0e0e0;
+    width: 100%;
+    position: relative;
+    display: block;
+    /* Ensure link behaves as block */
+}
+
+.insta-item::after {
+    content: '📷';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.3;
+}
+
+/* Footer */
+.footer {
+    background-color: #0d0417;
+    /* Even darker for footer */
+    padding: 80px 0 40px;
+    text-align: center;
+}
+
+.footer-title {
+    font-family: var(--font-cinzel);
+    color: var(--color-gold);
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.footer-text {
+    margin-bottom: 40px;
+    color: var(--color-text-dim);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-links a {
+    color: var(--color-gold);
+    text-decoration: none;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.copyright {
+    color: #555;
+    font-size: 0.8rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-container {
+        flex-direction: column;
+        /* Normal direction, but we will overlay */
+        text-align: center;
+        padding-top: 40px;
+        position: relative;
+        justify-content: center;
+        min-height: 80vh;
+        /* Ensure overlap space */
+    }
+
+    .hero-content {
+        padding-right: 0;
+        margin-top: 0;
+        z-index: 2;
+        /* Content on top */
+        position: relative;
+    }
+
+    /* Ensure specific sections are centered on mobile */
+    .services .container,
+    .instagram .container,
+    .magic .container {
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    /* Overlay image on mobile */
+    .hero-image-wrapper {
+        position: absolute;
+        top: -60px;
+        /* Moved higher closer to header */
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        opacity: 0.5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        pointer-events: none;
+    }
+
+    .hero-img {
+        max-width: none;
+        width: 90%;
+        /* Reduced size */
+        height: auto;
+        opacity: 0.8;
+        object-fit: contain;
+    }
+
+    .mystic-circle {
+        width: 400px;
+        height: 400px;
+    }
+
+    .magic-content {
+        flex-direction: column;
+    }
+
+    .header-container .nav {
+        display: none;
+        position: fixed;
+        /* Fixed to cover whole screen */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(26, 11, 46, 0.98);
+        /* High opacity dark bg */
+        padding-top: 100px;
+        /* Space for close button/header */
+        text-align: center;
+        z-index: 100;
+        /* On top of everything */
+        backdrop-filter: blur(10px);
+    }
+
+    .header-container .nav.active {
+        display: block;
+        animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 30px;
+        font-size: 1.2rem;
+    }
+
+    /* Ensure hamburger is on top of the menu */
+    .mobile-menu-btn {
+        display: block;
+        position: relative;
+        z-index: 101;
+    }
+
+    .insta-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 cols on mobile */
+    }
+
+    .insta-item:last-child {
+        display: none;
+        /* Hide 5th item for even grid */
+    }
+}
+
+
+/* Sparkles */
+.sparkle {
+    position: absolute;
+    color: var(--color-gold);
+    font-size: 1.5rem;
+    opacity: 0.6;
+    animation: pulse 3s infinite ease-in-out;
+    z-index: 3;
+    pointer-events: none;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.2;
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: scale(1.2);
+    }
+}

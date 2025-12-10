@@ -1,0 +1,89 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <style>
+            .line { stroke: rgba(255, 204, 0, 0.3); stroke-width: 1; fill: none; }
+            .circle-bg { fill: rgba(26, 11, 46, 0.9); stroke: rgba(255, 204, 0, 0.5); stroke-width: 1; }
+            .circle-sm { r: 12; }
+            .circle-md { r: 18; }
+            .circle-lg { r: 25; }
+            .num-text { fill: #ffcc00; font-family: serif; font-size: 14px; text-anchor: middle; dominant-baseline: middle; }
+            .rotate-slow { animation: rot 60s linear infinite; transform-origin: 250px 250px; }
+            @keyframes rot { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        </style>
+    </defs>
+    
+    <g class="rotate-slow">
+        <!-- Main Structure -->
+        <!-- Square -->
+        <rect x="100" y="100" width="300" height="300" class="line" />
+        <!-- Diamond (Rotated Square) -->
+        <rect x="100" y="100" width="300" height="300" class="line" transform="rotate(45 250 250)" />
+        
+        <!-- Diagonals -->
+        <line x1="100" y1="100" x2="400" y2="400" class="line" />
+        <line x1="400" y1="100" x2="100" y2="400" class="line" />
+        <line x1="250" y1="38" x2="250" y2="462" class="line" />
+        <line x1="38" y1="250" x2="462" y2="250" class="line" />
+
+        <!-- Circles and Numbers (Outer) -->
+        <!-- Top -->
+        <circle cx="250" cy="38" class="circle-bg circle-md" />
+        <text x="250" y="39" class="num-text">11</text>
+        
+        <!-- Bottom -->
+        <circle cx="250" cy="462" class="circle-bg circle-md" />
+        <text x="250" y="463" class="num-text">5</text>
+        
+        <!-- Left -->
+        <circle cx="38" cy="250" class="circle-bg circle-md" />
+        <text x="38" y="251" class="num-text">3</text>
+        
+        <!-- Right -->
+        <circle cx="462" cy="250" class="circle-bg circle-md" />
+        <text x="462" y="251" class="num-text">7</text>
+
+        <!-- Corners Square -->
+        <circle cx="100" cy="100" class="circle-bg circle-sm" />
+        <text x="100" y="101" class="num-text">18</text>
+        
+        <circle cx="400" cy="100" class="circle-bg circle-sm" />
+        <text x="400" y="101" class="num-text">15</text>
+        
+        <circle cx="400" cy="400" class="circle-bg circle-sm" />
+        <text x="400" y="401" class="num-text">9</text>
+        
+        <circle cx="100" cy="400" class="circle-bg circle-sm" />
+        <text x="100" y="401" class="num-text">22</text>
+        
+        <!-- Inner Diamond Corners -->
+        <circle cx="250" cy="100" class="circle-bg circle-sm" />
+        <text x="250" y="101" class="num-text">4</text>
+        
+        <circle cx="400" cy="250" class="circle-bg circle-sm" />
+        <text x="400" y="251" class="num-text">16</text>
+        
+        <circle cx="250" cy="400" class="circle-bg circle-sm" />
+        <text x="250" y="401" class="num-text">9</text>
+        
+        <circle cx="100" cy="250" class="circle-bg circle-sm" />
+        <text x="100" y="251" class="num-text">12</text>
+        
+        <!-- Center -->
+        <circle cx="250" cy="250" class="circle-bg circle-lg" style="stroke: #ffcc00; stroke-width: 2;" />
+        <text x="250" y="251" class="num-text" style="font-size: 20px; font-weight: bold;">9</text>
+        
+        <!-- Extra decorations/Small circles on lines -->
+        <circle cx="175" cy="175" class="circle-bg" r="8" />
+        <text x="175" y="176" class="num-text" style="font-size: 10px">20</text>
+        
+        <circle cx="325" cy="175" class="circle-bg" r="8" />
+        <text x="325" y="176" class="num-text" style="font-size: 10px">6</text>
+        
+        <circle cx="325" cy="325" class="circle-bg" r="8" />
+        <text x="325" y="326" class="num-text" style="font-size: 10px">16</text>
+        
+        <circle cx="175" cy="325" class="circle-bg" r="8" />
+        <text x="175" y="326" class="num-text" style="font-size: 10px">3</text>
+
+    </g>
+</svg>

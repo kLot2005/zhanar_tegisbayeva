@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="120" height="120" aria-label="Логотип Zhanar Tegisbayeva">
+  <defs>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="10%" style="stop-color:#FFFACD;stop-opacity:1" /> <stop offset="50%" style="stop-color:#FFD700;stop-opacity:1" /> <stop offset="90%" style="stop-color:#DAA520;stop-opacity:1" /> </linearGradient>
+    
+    <filter id="glow">
+        <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+        <feMerge>
+            <feMergeNode in="coloredBlur"/>
+            <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+    </filter>
+  </defs>
+
+  <g stroke="url(#goldGradient)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)">
+    
+    <path d="M30,30 L70,30 L30,70 L70,70" />
+    
+    <line x1="50" y1="30" x2="50" y2="42" />
+    <line x1="50" y1="58" x2="50" y2="70" />
+    
+    <circle cx="50" cy="50" r="38" stroke-width="1" opacity="0.6" stroke-dasharray="1, 4"/>
+  </g>
+
+  <path d="M50,42 Q 52,50 60,50 Q 52,50 50,58 Q 48,50 40,50 Q 48,50 50,42 Z" fill="url(#goldGradient)" filter="url(#glow)" />
+  
+</svg>
